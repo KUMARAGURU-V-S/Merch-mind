@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 24% 95%;
+    --foreground: 0 0% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 16%;
+    --primary: 176 79% 20%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 18% 90%;
+    --secondary-foreground: 0 0% 16%;
+    --muted: 40 12% 92%;
+    --muted-foreground: 37 6% 41%;
+    --accent: 8 68% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 8 68% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 12% 88%;
+    --input: 40 12% 88%;
+    --ring: 176 79% 20%;
+    --radius: 1.125rem;
+    
+    --color-bg-primary: #F6F3EE;
+    --color-bg-secondary: #0B5D5A;
+    --color-accent: #D64A36;
+    --color-text-primary: #2A2A2A;
+    --color-text-secondary: #6E6A63;
+    --color-paper: #EBE6DE;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Sora', sans-serif;
+  }
+  
+  .font-ui {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .card-shadow {
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.10);
+  }
+  
+  .card-shadow-sm {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-ui font-semibold text-sm tracking-wider uppercase transition-all duration-300;
+    background-color: var(--color-accent);
+    color: white;
+    box-shadow: 0 10px 24px rgba(214, 74, 54, 0.25);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(214, 74, 54, 0.35);
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full font-ui font-semibold text-sm tracking-wider uppercase transition-all duration-300 border-2;
+    border-color: var(--color-text-primary);
+    color: var(--color-text-primary);
+    background: transparent;
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-text-primary);
+    color: white;
+  }
+  
+  .status-badge {
+    @apply px-3 py-1 rounded-full text-xs font-ui font-semibold uppercase tracking-wider;
+  }
+  
+  .status-ok {
+    background-color: rgba(11, 93, 90, 0.1);
+    color: var(--color-bg-secondary);
+  }
+  
+  .status-low {
+    background-color: rgba(214, 74, 54, 0.1);
+    color: var(--color-accent);
+  }
+  
+  .status-high {
+    background-color: rgba(11, 93, 90, 0.15);
+    color: var(--color-bg-secondary);
+  }
+  
+  .section-pinned {
+    @apply w-screen h-screen relative overflow-hidden;
+  }
+  
+  .chat-bubble {
+    @apply p-4 rounded-2xl max-w-md;
+    background-color: var(--color-bg-primary);
+  }
+  
+  .signal-chip {
+    @apply px-4 py-2 rounded-2xl text-sm font-ui font-semibold border;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(-12px); }
+    50% { transform: translateY(-6px); }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}
