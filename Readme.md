@@ -98,3 +98,27 @@ Inventory planning and demand estimation are largely manual, resulting in stocko
 
 ---
 
+## 🚀 Getting Started
+
+### Prerequisites
+- **Node.js** & **npm**
+- **Firebase** project setup (for database and auth)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-repo/merch-mind.git
+   ```
+
+2. **Install Dependencies**
+   Navigate to the project directory and install the necessary packages:
+   ```bash
+   npm install
+   ```
+
+3. **Run the Application**
+   ```bash
+   npm start
+   ```
+---
